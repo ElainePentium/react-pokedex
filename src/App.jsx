@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import PokemonCard from "./components/PokemonCard"
+import NavBar from './components/NavBar'
 
 function App() {
 
@@ -31,20 +32,11 @@ function App() {
 
   const [pokemonIndex, setPokemonIndex] = useState(0);
 
-  const handleClick = (event) => {
-    if(event.target.innerHTML == "Prev") {
-      setPokemonIndex(pokemonIndex - 1)
-    }
-    if(event.target.innerHTML == "Next") {
-      setPokemonIndex(pokemonIndex + 1)
-    }
-  }
 
   return (
     <div>
       <PokemonCard pokemon={pokemonList[pokemonIndex]} />
-      {pokemonIndex > 0 ? <button onClick={handleClick}>Prev</button> : <button disabled="disabled">Prev</button>}
-      {pokemonIndex < pokemonList.length - 1 ? <button onClick={handleClick}>Next</button> : <button disabled="disabled">Next</button>}
+      <NavBar pokemonLength={pokemonList.length} pokemonIndex={pokemonIndex} setPokemonIndex={setPokemonIndex}/>
     </div>
   );
 }
