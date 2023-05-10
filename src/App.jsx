@@ -16,10 +16,10 @@ function App() {
       name: "mew",
     },
   ];
-  
+
   return (
     <div>
-      <PokemonCard pokemon={pokemonList[0]}/>
+      <PokemonCard pokemon={pokemonList[0]} />
     </div>
   );
 }
