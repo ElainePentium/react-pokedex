@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import React from 'react'
+import { useState, useEffect } from "react";
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -6,6 +7,12 @@ import PokemonCard from "./components/PokemonCard"
 import NavBar from './components/NavBar'
 
 function App() {
+  useEffect(
+    () =>  {
+      alert("hello pokemon trainer :)")
+    }, 
+    []
+ );
 
   const pokemonList = [
     {
@@ -35,7 +42,7 @@ function App() {
   return (
     <div>
       <PokemonCard pokemon={currentPokemon[0]} />
-      <NavBar pokemonList={pokemonList} currentPokemon={currentPokemon} setCurrentPokemon={setCurrentPokemon} />
+      <NavBar pokemonList={pokemonList} currentPokemon={currentPokemon[0]} setCurrentPokemon={setCurrentPokemon} />
     </div>
   );
 }
